@@ -3,15 +3,19 @@ version: '3.8'
 services:
   web:
     # image: candycbt:latest
-    build: .
+    image: porchn/php7-apache
+    #build: .
     container_name: candycbt
     ports:
     - 8033:80
     volumes:
       - ./app:/var/www/html:rw
+      - ./config/apache:/etc/apache2/sites-enabled:rw
+      - ./config/php.ini:/usr/local/etc/php/php.ini:rw
     networks:
     - candynet
-    environment:
+    environment: 
+     TZ: Asia/Jakarta
     restart: unless-stopped
    
 

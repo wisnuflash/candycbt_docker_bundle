@@ -1,8 +1,8 @@
 <?php
 //konfigurasi server database
 $host = 'mariadb';
-$user = 'dbuser';
-$pass = 'strongpw';
+$user = 'root';
+$pass = 'Cpu25';
 $debe = 'candydb';
 
 
