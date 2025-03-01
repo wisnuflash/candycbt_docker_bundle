@@ -2,7 +2,8 @@
 version: '3.8'
 services:
   web:
-    image: candycbt:latest
+    # image: candycbt:latest
+    build: .
     container_name: candycbt
     ports:
     - 8033:80
@@ -19,12 +20,13 @@ services:
     restart: unless-stopped
     image: mariadb:10.4.33
     environment:
-      - MARIADB_ROOT_PASSWORD: Cpu25
-      - MARIADB_USER: dbuser
-      - MARIADB_PASSWORD: strongpw
-      - MARIADB_DATABASE: candydb
+      MARIADB_ROOT_PASSWORD: Cpu25
+      MARIADB_USER: dbuser
+      MARIADB_PASSWORD: strongpw
+      MARIADB_DATABASE: candydb
     volumes:
       - ./data:/var/lib/mysql:rw
+      - ./ecandy28r3.sql:/docker-entrypoint-initdb.d/ecandy28r3.sql
     networks:
       - candynet
 

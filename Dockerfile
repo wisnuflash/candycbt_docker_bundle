@@ -10,8 +10,8 @@ RUN apt-get update && apt-get install -y \
     unzip \
     git \
     curl \
-    nano \
-    && rm -rf /var/lib/apt/lists/*
+    nano 
+    # && rm -rf /var/lib/apt/lists/*
 
 RUN a2enmod rewrite headers
 
