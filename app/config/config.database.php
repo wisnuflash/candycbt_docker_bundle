@@ -1,9 +1,9 @@
 <?php
 //konfigurasi server database
-$host = 'localhost';
-$user = 'root';
-$pass = '';
-$debe = 'ecandy28r3';
+$host = 'mariadb';
+$user = 'dbuser';
+$pass = 'strongpw';
+$debe = 'candydb';
 
 
 $koneksi = mysqli_connect($host, $user, $pass, "");
