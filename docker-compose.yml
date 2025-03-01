@@ -16,7 +16,13 @@ services:
     - candynet
     environment: 
      TZ: Asia/Jakarta
+     DB_HOST: mariadb
+     DB_USER: root
+     DB_PASS: Cpu25
+     DB_NAME: candynew
     restart: unless-stopped
+    depends_on:
+      - db 
    
 
   db:
@@ -29,12 +35,13 @@ services:
       MARIADB_PASSWORD: strongpw
       MARIADB_DATABASE: candydb
     volumes:
-      - ./data:/var/lib/mysql:rw
-      - ./ecandy28r3.sql:/docker-entrypoint-initdb.d/ecandy28r3.sql
+      # - ./data:/var/lib/mysql:rw
+      - mariadb-data:/var/lib/mysql:rw
     networks:
       - candynet
 
-
+volumes:
+  mariadb-data: {}
 networks:
   candynet:
     driver: bridge

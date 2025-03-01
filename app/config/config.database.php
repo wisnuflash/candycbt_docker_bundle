@@ -1,10 +1,13 @@
 <?php
 //konfigurasi server database
-$host = 'mariadb';
-$user = 'root';
-$pass = 'Cpu25';
-$debe = 'candydb';
-
+// $host = 'mariadb';
+// $user = 'root';
+// $pass = 'Cpu25';
+// $debe = 'candydb';
+$host = getenv('DB_HOST') ?: 'mariadb';
+$user = getenv('DB_USER') ?: 'root';
+$pass = getenv('DB_PASS') ?: 'Cpu25';
+$debe = getenv('DB_NAME') ?: 'candydb';
 
 $koneksi = mysqli_connect($host, $user, $pass, "");
 if ($koneksi) {

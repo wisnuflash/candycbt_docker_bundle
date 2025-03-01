@@ -10,7 +10,7 @@ if (!$pilihdb) {
 	$ket2 = 'disabled';
 }
 if (isset($_POST['buat'])) {
-	$nama_db = 'ecandy28r3';
+	$nama_db = getenv('DB_NAME');
 
 	mysqli_query($koneksi, "CREATE DATABASE $nama_db CHARACTER SET utf8 COLLATE utf8_general_ci;");
 	header('location:admin/login.php');
