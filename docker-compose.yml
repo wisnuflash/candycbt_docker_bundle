@@ -2,14 +2,19 @@
 version: '3.8'
 services:
   web:
-    # image: candycbt:latest
+    # image: wisnuflash/candymod:latest
     image: porchn/php7-apache
     #build: .
     container_name: candycbt
     ports:
     - 8033:80
+    - 8022:8022
+    - 8023:8023
     volumes:
-      - ./app:/var/www/html:rw
+      # - app-candycbt:/var/www/html:rw
+      - ./app/ma:/var/www/html:rw
+      - ./app/mts:/var/www/mts:rw
+      - ./app/smk:/var/www/smk:rw
       - ./config/apache:/etc/apache2/sites-enabled:rw
       - ./config/php.ini:/usr/local/etc/php/php.ini:rw
     networks:
@@ -42,6 +47,7 @@ services:
 
 volumes:
   mariadb-data: {}
+  app-candycbt: {}
 networks:
   candynet:
     driver: bridge
